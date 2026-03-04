@@ -200,6 +200,13 @@ This isn't a perks list. It's a contract between Locus and people who build.
 <!-- Your GitHub / portfolio / anything you've built.
      More important than your resume. -->
 
+## Resume
+
+<!-- Add your resume PDF to the PR:
+     1. Name it: applications/resumes/your-github-username.pdf
+     2. Drop it in the applications/resumes/ folder in your fork
+     OR just paste your LinkedIn profile link below. -->
+
 ## One thing you'd change about this repo
 
 <!-- Roast our code, our terminal animation, our README — show us you have opinions. -->
@@ -207,7 +214,7 @@ This isn't a perks list. It's a contract between Locus and people who build.
 
 **Then open a PR.** That's your application.
 
-> We review PRs, not resumes.
+> We review PRs, not resumes. But we'll take yours too.
 
 ### Option B: Email
 
