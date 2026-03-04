@@ -226,6 +226,61 @@
     z-index: -1;
     opacity: 0.03;
   }
+
+  /* CTA Buttons */
+  .cta-container {
+    display: flex;
+    gap: 16px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+    opacity: 0;
+  }
+  .cta-container.visible {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 2px solid;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 209, 115, 0.3);
+  }
+  .cta-primary {
+    border-color: #00D173;
+    color: #0d0d14;
+    background: #00D173;
+  }
+  .cta-primary:hover {
+    background: #00ff88;
+    border-color: #00ff88;
+  }
+  .cta-secondary {
+    border-color: #14B5F0;
+    color: #14B5F0;
+    background: transparent;
+  }
+  .cta-secondary:hover {
+    background: rgba(20, 181, 240, 0.15);
+  }
+  .cta-tertiary {
+    border-color: #555;
+    color: #888;
+    background: transparent;
+  }
+  .cta-tertiary:hover {
+    border-color: #FF8C00;
+    color: #FF8C00;
+    background: rgba(255, 140, 0, 0.1);
+  }
 </style>
 </head>
 <body>
@@ -543,6 +598,22 @@ addLine('<span class="dim">  "We don\'t hire the best people and tell them what 
 addLine('<span class="dim">   We hire builders and get out of their way."</span> <span class="green">— Locus Engineering</span>', 200);
 addLine('', 400);
 addLine('<span class="green">▶</span> <span class="white">locus@backend</span><span class="dim">:</span><span class="blue">~/sd3-role</span> <span class="dim">$</span> <span class="cursor"></span>', 500);
+
+// CTA Buttons
+setTimeout(() => {
+  const ctaDiv = document.createElement('div');
+  ctaDiv.className = 'cta-container';
+  ctaDiv.innerHTML = `
+    <a href="https://github.com/utkarsh497/the-software-factory/fork" target="_blank" class="cta-btn cta-primary">Fork & Apply via PR</a>
+    <a href="mailto:careers@locus.sh?subject=SD3%20Backend%20%7C%20%5BYour%20Name%5D" class="cta-btn cta-secondary">Email careers@locus.sh</a>
+    <a href="https://github.com/utkarsh497/the-software-factory" target="_blank" class="cta-btn cta-tertiary">View Source</a>
+  `;
+  output.appendChild(ctaDiv);
+  requestAnimationFrame(() => {
+    ctaDiv.classList.add('visible');
+    ctaDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  });
+}, lineDelay + 1000);
 
 // Hint line — flickers in after a delay, subtle enough that only attentive people notice
 setTimeout(() => {
