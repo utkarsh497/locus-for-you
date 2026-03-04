@@ -14,7 +14,7 @@
 ───────────────────────────────────────────────────────────────
 ```
 
-### **[▶ See this as a live animated terminal](https://utkarsh497.github.io/locus-for-you/)**
+### **[▶ See this as a live animated terminal](https://utkarsh497.github.io/the-software-factory/)**
 
 ---
 
@@ -219,7 +219,7 @@ Send us:
 
 ### Option 🥚: Find the Easter Egg
 
-There's something hidden in the [live terminal](https://utkarsh497.github.io/locus-for-you/). Engineers who find it skip the queue.
+There's something hidden in the [live terminal](https://utkarsh497.github.io/the-software-factory/). Engineers who find it skip the queue.
 
 > *Hint: Good engineers read the source. Great engineers talk to the terminal.*
 
