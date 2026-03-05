@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   create-labels:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-self-micro
     steps:
       - name: Create hiring pipeline labels
         uses: actions/github-script@v7
