@@ -211,71 +211,100 @@
   /* ── Visitor capture modal ── */
   .visitor-overlay {
     position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(10, 10, 10, 0.92);
     z-index: 500;
     display: flex; align-items: center; justify-content: center;
     opacity: 1; transition: opacity 0.3s;
   }
   .visitor-overlay.hidden { opacity: 0; pointer-events: none; }
-  .visitor-box {
-    max-width: min(420px, 90vw);
+  .visitor-window {
+    max-width: min(460px, 92vw);
     width: 100%;
-    padding: clamp(20px, 4vw, 32px);
   }
-  .visitor-box h2 {
-    color: #00D173;
+  .visitor-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #111;
+    border: 1px solid #222;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+  }
+  .visitor-titlebar .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .visitor-titlebar .dot-red { background: #ff5f57; }
+  .visitor-titlebar .dot-yellow { background: #ffbd2e; }
+  .visitor-titlebar .dot-green { background: #28c840; }
+  .visitor-titlebar-text { color: #444; font-size: 11px; margin-left: 12px; user-select: none; font-family: 'JetBrains Mono', monospace; }
+  .visitor-body {
+    background: #0d0d0d;
+    border: 1px solid #222;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: clamp(20px, 4vw, 28px);
+  }
+  .visitor-body .prompt-line {
     font-family: 'JetBrains Mono', monospace;
-    font-size: clamp(14px, 1.6vw, 16px);
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-size: clamp(12px, 1.4vw, 14px);
+    color: #d4d4d4;
+    margin-bottom: 16px;
+    line-height: 1.7;
   }
-  .visitor-box p {
+  .visitor-body .prompt-line .g { color: #00D173; }
+  .visitor-body .prompt-line .d { color: #444; }
+  .visitor-body .prompt-line .b { color: #fff; font-weight: 700; }
+  .visitor-label {
     color: #444;
     font-family: 'JetBrains Mono', monospace;
-    font-size: clamp(11px, 1.2vw, 12px);
-    margin-bottom: 20px;
-    line-height: 1.6;
+    font-size: 11px;
+    margin-bottom: 4px;
+    display: block;
   }
   .visitor-input {
     display: block;
     width: 100%;
     background: transparent;
-    border: 1px solid #333;
+    border: 1px solid #222;
+    border-radius: 0;
     color: #d4d4d4;
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
     padding: 10px 12px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     outline: none;
     min-height: 44px;
+    caret-color: #00D173;
   }
   .visitor-input:focus { border-color: #00D173; }
-  .visitor-input::placeholder { color: #333; }
+  .visitor-input::placeholder { color: #2a2a2a; }
   .visitor-submit {
     width: 100%;
     background: #00D173;
     color: #0a0a0a;
-    border: none;
+    border: 1px solid #00D173;
+    border-radius: 0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     padding: 12px;
     cursor: pointer;
     min-height: 44px;
     margin-top: 4px;
+    transition: background 0.15s;
   }
-  .visitor-submit:hover { background: #00ff88; }
+  .visitor-submit:hover { background: #00ff88; border-color: #00ff88; }
   .visitor-skip {
     display: block;
     text-align: center;
     color: #333;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    margin-top: 12px;
+    margin-top: 14px;
     cursor: pointer;
     background: none;
     border: none;
     width: 100%;
+    transition: color 0.15s;
   }
   .visitor-skip:hover { color: #555; }
 
@@ -324,13 +353,23 @@
 
 <!-- Visitor capture -->
 <div class="visitor-overlay" id="visitorOverlay">
-  <div class="visitor-box">
-    <h2>▶ identify</h2>
-    <p>Before you explore — who are we talking to?</p>
-    <input type="text" class="visitor-input" id="visitorName" placeholder="your name" autocomplete="name" autofocus>
-    <input type="email" class="visitor-input" id="visitorEmail" placeholder="your email">
-    <button class="visitor-submit" id="visitorSubmit">Enter the Factory</button>
-    <button class="visitor-skip" id="visitorSkip">skip — I'll just look around</button>
+  <div class="visitor-window">
+    <div class="visitor-titlebar">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+      <span class="visitor-titlebar-text">factory.locus.sh — identify</span>
+    </div>
+    <div class="visitor-body">
+      <div class="prompt-line"><span class="g">▶</span> <span class="b">Before you explore — who are we talking to?</span></div>
+      <div class="prompt-line"><span class="d">We review every visitor personally. No spam, ever.</span></div>
+      <label class="visitor-label">name</label>
+      <input type="text" class="visitor-input" id="visitorName" placeholder="$ enter your name" autocomplete="name" autofocus>
+      <label class="visitor-label">email</label>
+      <input type="email" class="visitor-input" id="visitorEmail" placeholder="$ enter your email">
+      <button class="visitor-submit" id="visitorSubmit">Enter the Factory →</button>
+      <button class="visitor-skip" id="visitorSkip">skip — I'll just look around</button>
+    </div>
   </div>
 </div>
 
