@@ -664,6 +664,17 @@ function onInputKey(e) {
   if (e.key === 'Enter' && e.target.value.trim()) {
     handleCommand(e.target.value);
   }
+  // Let arrow keys scroll the page when input is empty
+  if ((e.key === 'ArrowUp' || e.key === 'ArrowDown') && !e.target.value) {
+    e.target.blur();
+  }
+  // Let left/right arrow keys pass through when cursor is at boundaries
+  if (e.key === 'ArrowLeft' && e.target.selectionStart === 0) {
+    e.target.blur();
+  }
+  if (e.key === 'ArrowRight' && e.target.selectionStart === e.target.value.length) {
+    e.target.blur();
+  }
 }
 
 // ════════════════════════════════════════════════════════════
