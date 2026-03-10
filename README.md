@@ -224,14 +224,6 @@ Send us:
 - Your GitHub / portfolio / anything you've built — **required**. More important than your resume.
 - A one-liner on why Locus interests you.
 
-### Option 🥚: Find the Easter Egg
-
-There's something hidden in the [live terminal](https://factory.locus.sh/). Engineers who find it skip the queue.
-
-> *Hint: Good engineers read the source. Great engineers talk to the terminal.*
-
----
-
 ---
 
 ## `$ locus list-roles --open --all-teams`

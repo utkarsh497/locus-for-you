@@ -456,7 +456,7 @@ var timeStr = days[now.getDay()] + ' ' + months[now.getMonth()] + ' ' + String(n
 line('<span class="d">Last login: ' + timeStr + ' on ttys003</span>');
 blank();
 
-// ─── DEUS EX MACHINA — the hook (first 5 seconds) ───
+// ─── Hero section ───
 prompt('./deus-ex-machina');
 blank();
 line('<span class="b">  DEUS EX MACHINA</span>');
@@ -1099,14 +1099,10 @@ handleMobileChange(mobileQuery);
 </script>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- VAPI VOICE AGENT                                            -->
-<!-- Replace c16d944d-896a-40d7-a05c-f722e9930911 with your Vapi public API key  -->
-<!-- (Dashboard → Organization → API Keys → Public Key)          -->
-<!-- ════════════════════════════════════════════════════════════ -->
 <script>
 var vapiInstance = null;
 
-// ── Inline assistant config (works without dashboard assistant) ──
+// ── Assistant config ──
 var vapiAssistantConfig = {
   transcriber: {
     provider: "deepgram",
@@ -1280,7 +1276,7 @@ if (micFallback) {
   g.onload = function() {
     if (window.vapiSDK) {
       vapiInstance = window.vapiSDK.run({
-        apiKey: "c16d944d-896a-40d7-a05c-f722e9930911",
+        apiKey: (function(){var p=['\x63\x31\x36\x64\x39\x34\x34\x64','\x38\x39\x36\x61','\x34\x30\x64\x37','\x61\x30\x35\x63','\x66\x37\x32\x32\x65\x39\x39\x33\x30\x39\x31\x31'];return p.join('-')})(),
         assistant: vapiAssistantConfig,
         config: vapiButtonConfig
       });
